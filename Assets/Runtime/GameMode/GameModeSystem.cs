@@ -79,6 +79,8 @@ namespace Armageddon.GameMode {
                     Shutdown();
                 }
             };
+
+            Application.quitting += Shutdown;
             
             PlayerLoop.InsertAt(InternalUpdate, EPlayerLoopTiming.Update);
             PlayerLoop.InsertAt(InternalFixedUpdate, EPlayerLoopTiming.FixedUpdate);
@@ -123,6 +125,7 @@ namespace Armageddon.GameMode {
             
             modeInstance = null;
             targetScene = null;
+            
             onShutdown?.Invoke(); //Invoke this event
         }
 

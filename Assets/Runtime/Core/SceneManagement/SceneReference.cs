@@ -112,7 +112,7 @@ namespace Armageddon.SceneManagement {
                 scenePath = GetScenePathFromAsset();
             }
 
-            RefreshChecksum();
+            RefreshChecksum(false);
         }
 
         public void HandleAfterDeserialize() {
