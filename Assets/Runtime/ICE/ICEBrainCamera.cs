@@ -41,9 +41,13 @@ namespace Armageddon.ICE {
         [field: SerializeField, Tooltip("The Cinemachine Brain component.")] public CinemachineBrain Brain { get; private set; }
         
         /// <summary>
-        /// THe <see cref="UnityEngine.AudioListener"/> component used by this <see cref="ICEBrainCamera"/>.
+        /// The <see cref="UnityEngine.AudioListener"/> component used by this <see cref="ICEBrainCamera"/>.
         /// </summary>
         public AudioListener AudioListener { get; private set; } = null;
+        /// <summary>
+        /// The <see cref="UniversalAdditionalCameraData"/> component used by this <see cref="ICEBrainCamera"/>.
+        /// </summary>
+        public UniversalAdditionalCameraData URPCameraData { get; private set; } = null;
 
         #endregion
 
@@ -64,13 +68,19 @@ namespace Armageddon.ICE {
                 gameObject.AddComponent<Camera>(); //If there's no Camera component assigned
                 AudioListener = gameObject.AddComponent<AudioListener>(); //Also add this
             }
-            if(Brain == null) Brain = gameObject.AddComponent<CinemachineBrain>(); //If there's no CinemachineBrain component assigned
+            if (Brain == null) Brain = gameObject.AddComponent<CinemachineBrain>(); //If there's no CinemachineBrain component assigned
+            URPCameraData = GetComponent<UniversalAdditionalCameraData>();
+            if (URPCameraData == null) {
+                URPCameraData = gameObject.AddComponent<UniversalAdditionalCameraData>();
+            }
             
             Brain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.Cut, 0f); //Set the default blend
             
-            Camera.GetUniversalAdditionalCameraData().renderPostProcessing = true; //Allow Post-Processing
-            
             Logger.Trace("ICE Brain Camera", $"New instance created.");
+        }
+
+        private void Start() {
+            URPCameraData.renderPostProcessing = true; //Allow Post-Processing
         }
 
         #endregion

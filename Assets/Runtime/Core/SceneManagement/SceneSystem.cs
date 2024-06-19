@@ -116,7 +116,7 @@ namespace Armageddon.SceneManagement {
             
             //Set the default values of the SceneSystem
             loadedScenes.Add(_defaultSceneInfo, _defaultScene);
-            SetActiveScene(_defaultScene, true, false);
+            SetActiveScene(_defaultScene, false, false);
         }
         
         #endregion

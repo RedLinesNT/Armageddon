@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using Armageddon.Engine;
 using Armageddon.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Armageddon.GameMode {
 
@@ -85,6 +87,21 @@ namespace Armageddon.GameMode {
             PlayerLoop.InsertAt(InternalUpdate, EPlayerLoopTiming.Update);
             PlayerLoop.InsertAt(InternalFixedUpdate, EPlayerLoopTiming.FixedUpdate);
         }
+        
+        /// <summary>
+        /// Check if the first scene launched actually require a GameMode to be executed.
+        /// </summary>
+        /// <remarks>
+        /// <inheritdoc cref="RuntimeInitializeLoadType.AfterSceneLoad"/>
+        /// </remarks>
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)] private static void InitializeSecondPass() {
+            if (SceneSystem.ActiveScene.Key == null) return; //The default scene isn't registered
+            if (SceneSystem.ActiveScene.Key.GameMode == null) return; //There's nothing to execute on this scene
+            
+            //Directly set the context
+            targetScene = SceneSystem.ActiveScene.Key;
+            SetContext(targetScene);
+        }
 
         #endregion
 
@@ -109,10 +126,12 @@ namespace Armageddon.GameMode {
             }
 #endif
 
+            Configuration = targetScene.GameMode;
             modeInstance = (AGameModeLogic)Activator.CreateInstance(targetScene.GameMode.OperatingLogic.GetType());
-            modeInstance.Initialize();
             
             Logger.Trace("Game Mode System", $"The context for the level '{targetScene.Identifier}' has been loaded! ({Configuration.InternalName} - {modeInstance.GetType().Name})");
+            
+            modeInstance.Initialize();
             
             onInitialized?.Invoke(); //Invoke this event
         }
