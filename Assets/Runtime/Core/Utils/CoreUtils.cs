@@ -24,6 +24,10 @@ namespace Armageddon.Utils {
             }
         }
         
+        public static float Range(float _val, float _min, float _max) { 
+            return (float)(_min + _val * (_max - _min)); 
+        }
+        
     }
     
 }
