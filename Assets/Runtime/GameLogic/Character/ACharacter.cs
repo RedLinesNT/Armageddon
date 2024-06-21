@@ -119,9 +119,13 @@ namespace Armageddon.GameLogic.Character {
         }
 
         protected void Update() {
-            if (!canShoot && Settings.WaitForStop && Rigidbody.velocity.magnitude < 0.3f) {
+            if (!canShoot && Settings.WaitForStop && Rigidbody.velocity.magnitude < 0.25f) {
                 canShoot = true;
                 LastSafePosition = transform.position;
+                
+                //Fix the ball still rotating after stopping
+                Freeze = true;
+                Freeze = false;
             }
         }
 
