@@ -81,7 +81,15 @@ namespace Armageddon.GameLogic.Character {
         /// <summary>
         /// The current target rotation angle.
         /// </summary>
-        public float CurrentAngle { get; private set; }
+        public float CurrentAngle { get; private set; } = 0f;
+        /// <summary>
+        /// The number of shots the player did since the creation of this <see cref="ACharacter"/>'s creation.
+        /// </summary>
+        public int ShotsCount { get; private set; } = 0;
+        /// <summary>
+        /// The position of the last safe position.
+        /// </summary>
+        public Vector3 LastSafePosition { get; private set; } = Vector3.zero;
 
         /// <summary>
         /// The <see cref="InputAction"/> used by this <see cref="ACharacter"/>.
@@ -102,6 +110,8 @@ namespace Armageddon.GameLogic.Character {
                     Destroy(this);
                 }
             }
+
+            LastSafePosition = transform.position;
         }
 
         protected void Start() {
@@ -109,7 +119,10 @@ namespace Armageddon.GameLogic.Character {
         }
 
         protected void Update() {
-            if (!canShoot && Settings.WaitForStop && Rigidbody.velocity.magnitude < 0.3f) canShoot = true;
+            if (!canShoot && Settings.WaitForStop && Rigidbody.velocity.magnitude < 0.3f) {
+                canShoot = true;
+                LastSafePosition = transform.position;
+            }
         }
 
         #endregion
@@ -124,6 +137,7 @@ namespace Armageddon.GameLogic.Character {
             
             Rigidbody.AddRelativeForce(Vector3.forward * currentCharge, ForceMode.Impulse);
             currentCharge = 0f;
+            ShotsCount++;
             
             if (Settings.WaitForStop) canShoot = false;
         }
@@ -135,6 +149,21 @@ namespace Armageddon.GameLogic.Character {
         protected void AddRotation(float _amount) {
             CurrentAngle += _amount;
             Rigidbody.MoveRotation(Quaternion.Euler(Vector3.up * CurrentAngle));
+        }
+
+        #endregion
+
+        #region Attributes
+
+        /// <summary>
+        /// Reset the <see cref="ACharacter"/>'s position to the <see cref="LastSafePosition"/> registered.
+        /// </summary>
+        public void ResetToSafePosition() {
+            Freeze = true;
+            transform.position = LastSafePosition;
+            Freeze = false;
+            
+            Logger.Trace($"Character {name}", $"Position reset to the last safe one registered.");
         }
 
         #endregion

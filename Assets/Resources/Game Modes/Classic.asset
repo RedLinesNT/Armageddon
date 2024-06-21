@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db13002cb9184ed8be22a818eac8e2d3, type: 3}
+  m_Name: Classic
+  m_EditorClassIdentifier: 
+  <InternalName>k__BackingField: Classic
+  <AllowOnBuild>k__BackingField: 1
+  <OperatingLogic>k__BackingField:
+    rid: 5401551467904761876
+  <Character>k__BackingField: {fileID: 7005140874103259038, guid: 757ff8204a9bb27a9b633b77c2248f5e, type: 3}
+  <CharacterCamera>k__BackingField: {fileID: 6962933632934397291, guid: 749837b4e6322176e8b750d42b77f86f, type: 3}
+  references:
+    version: 2
+    RefIds:
+    - rid: 5401551467904761876
+      type: {class: ClassicGameMode, ns: Armageddon.GameMode.Logic, asm: Assembly-CSharp}
+      data: 

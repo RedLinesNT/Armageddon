@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Armageddon.Utils {
@@ -24,8 +26,16 @@ namespace Armageddon.Utils {
             }
         }
         
-        public static float Range(float _val, float _min, float _max) { 
-            return (float)(_min + _val * (_max - _min)); 
+        public static T PickRandom<T>(this IEnumerable<T> _source) {
+            return _source.PickRandom(1).Single();
+        }
+
+        public static IEnumerable<T> PickRandom<T>(this IEnumerable<T> _source, int _count) {
+            return _source.Shuffle().Take(_count);
+        }
+
+        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> _source) {
+            return _source.OrderBy(_x => GenerateUUID());
         }
         
     }

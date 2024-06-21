@@ -13,7 +13,7 @@ namespace Armageddon.GameLogic.Camera {
         /// <summary>
         /// The pivot point of this <see cref="ACharacterCamera"/>.
         /// </summary>
-        [field: SerializeField, Header("References"), Tooltip("The pivot point of this Character Camera.")] public ACharacter Pivot { get; private set; }
+        [field: SerializeField, Header("References"), Tooltip("The pivot point of this Character Camera.")] public ACharacter Pivot { get; set; }
         
         /// <summary>
         /// The offset added to the pivot position of the <see cref="ACharacterCamera"/>.
@@ -47,7 +47,7 @@ namespace Armageddon.GameLogic.Camera {
         #region Properties
 
         /// <inheritdoc cref="CharacterCameraSettings"/>
-        [field: SerializeField, Tooltip("The primitive settings for this Character Camera.")] public CharacterCameraSettings Settings { get; private set; }
+        [field: SerializeField, Tooltip("The primitive settings for this Character Camera.")] public CharacterCameraSettings Settings { get; set; }
 
         #endregion
 

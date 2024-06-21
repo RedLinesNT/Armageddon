@@ -131,6 +131,7 @@ namespace Armageddon.GameMode {
             
             Logger.Trace("Game Mode System", $"The context for the level '{targetScene.Identifier}' has been loaded! ({Configuration.InternalName} - {modeInstance.GetType().Name})");
             
+            modeInstance.PreInitialize();
             modeInstance.Initialize();
             
             onInitialized?.Invoke(); //Invoke this event

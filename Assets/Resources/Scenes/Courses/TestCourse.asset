@@ -15,6 +15,6 @@ MonoBehaviour:
   <Scene>k__BackingField:
     sceneAsset: {fileID: 102900000, guid: 3a383fa8ff8b294aa8a6349b91a93103, type: 3}
     scenePath: Assets/Scenes/Courses/TestCourse.unity
-    checksum: ba3870bfcf811c3eb1308d8ceb51cb02
-  <Identifier>k__BackingField: Test Course 0-0
-  <GameMode>k__BackingField: {fileID: 11400000, guid: 9c04221c5b37c48cba1110ed95bc6197, type: 2}
+    checksum: f6e37f7e939faf33cdd441e3019de3da
+  <Identifier>k__BackingField: Test Course 0-2
+  <GameMode>k__BackingField: {fileID: 11400000, guid: 1465a0c99a05bac8e83d1d1ca01ab064, type: 2}
