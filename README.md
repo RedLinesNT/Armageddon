@@ -1,4 +1,4 @@
-<div align="center"> <img src="https://github.com/RedLinesNT/Armageddon/blob/main/Armageddon_Wide.png"> </div>
+<div align="center"> <img src="https://github.com/RedLinesNT/Armageddon/blob/main/Visual/Armageddon_Wide.png"> </div>
 Simple Tech-Demo with the goal of making a "Golf It" type game in 4 days on Unity (at the same time as my last school week).
 I only endorse the code behind it, the gameplay on the other side could be a LOT better.
 
