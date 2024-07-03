@@ -1,5 +1,4 @@
 # Project ARMAGEDDON (French README)
-Test technique pour ANGEL CORP.
 
 <hr>
 
@@ -12,7 +11,7 @@ Test technique pour ANGEL CORP.
  
 ### Problèmes connus:
  - La caméra 3ème personne est plus que abjecte.
- - Aucun rendu 3D dans l'éditeur l'API de rendu est VULKAN.
+ - Aucun rendu 3D dans l'éditeur si l'API de rendu est VULKAN.
  - Il serait préférable de "tweaker" le Physics Material du joueur, les collisions sont bof...
 
 <hr>
