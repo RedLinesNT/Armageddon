@@ -1,4 +1,6 @@
 # Project ARMAGEDDON (French README)
+Demo technique simple dans le but de réaliser un jeu de type "Golf It" en 4 jours.
+Je garantie uniquement le code, la partie Gameplay pourrait être mieux on va dire...
 
 <hr>
 
