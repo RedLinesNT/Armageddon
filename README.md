@@ -1,50 +1,50 @@
-# Project ARMAGEDDON (French README)
-Demo technique simple dans le but de réaliser un jeu de type "Golf It" en 4 jours.
-Je garantie uniquement le code, la partie Gameplay pourrait être mieux on va dire...
+# Project ARMAGEDDON
+Simple Tech-Demo with the goal of making a "Golf It" type game in 4 days on Unity (at the same time as my last school week).
+I only endorse the code behind it, the gameplay on the other side could be a LOT better.
 
 <hr>
 
 
-### Le projet a été testé sur (Editeur):
+### The project has been tested on (Editor):
   - OS: Ubuntu 24.04 LTS (64-bits)<br/>
   - IDE: JetBrains Rider<br/>
   - Rendering API: OpenGL Core 4.5<br/>
 
  
-### Problèmes connus:
- - La caméra 3ème personne est plus que abjecte.
- - Aucun rendu 3D dans l'éditeur si l'API de rendu est VULKAN.
- - Il serait préférable de "tweaker" le Physics Material du joueur, les collisions sont bof...
+### Known issues:
+ - The 3rd person camera is beyond disgusting.
+ - If the selected rendering API is VULKAN, the editor won't render anything at all.
+ - It would be preferable to tweak the player's "Physics Material", as this makes the collisions hideous.
 
 <hr>
 
-## Table des matières
+## Summary
 
 <!--ts-->
-   * [Programmes requis](#programmes-requis)
-   * [Packages du projet](#packages-du-projet)
-   * [Norme de programmation](#norme-de-programmation)
+   * [Required programs](#required-programs)
+   * [Project packages](#project-packages)
+   * [Programming standards](#programming-standards)
 <!--te-->
 
 <hr>
 
-## Programmes requis
+## Required programs
   - Unity Hub
   - Unity Engine (2023.1.19f1)
 
-Les programmeurs auront besoin d'avoir un "IDE" de leur choix. Ces deux IDE sont recommandés :
+Programmers will need an IDE of their choice, these twos are recommended :
   - Visual Studio Community 2019/2022
   - JetBrains Rider 2023
 
-### Vous ne possedez pas la version d'Unity mentionné au dessus ?
-  Pour installer la version du moteur demandée avec Unity Hub, rendez-vous sur [cette page d'Unity](https://unity.com/releases/editor/whats-new/2023.1.19).<br>
-  En haut de cette page, cliquez sur "<i>Install this version with Unity Hub</i>".
+### Missing the Unity version mentionned above ?
+  To install the engine version required with Unity Hub, go to [this page from Unity](https://unity.com/releases/editor/whats-new/2023.1.19).<br>
+  And at the top of this page, click on "<i>Install this version with Unity Hub</i>", then Unity Hub will deal with the rest.
 
 <hr>
 
-## Packages du projet
+## Project packages
 
-Voici la liste des packages installés sur ce projet :
+Here's the list of packages currently installed :
  - Burst (1.8.16)
  - Cinemachine (2.9.7)
  - Core RP Library (15.0.7)
@@ -65,13 +65,13 @@ Voici la liste des packages installés sur ce projet :
 
 <hr>
 
-## Norme de programmation
+## Programming standards
 
   Class :
     ```
     CamelCase
     ```<br>
-  Attributs :
+  Attributes :
     ```
     camelCase
     ```<br>
@@ -79,7 +79,7 @@ Voici la liste des packages installés sur ce projet :
     ```
     _camelCase
     ```<br>
-  Méthodes :
+  Methods :
     ```
     CamelCase()
     ```<br>
@@ -87,20 +87,15 @@ Voici la liste des packages installés sur ce projet :
     ```
     ENameOfEnum
     ```<br>
-  Valeur d'un Enum :
+  Enum's Values :
     ```
     VALUE
     ```<br><br>
-L'entièreté des attributs doivent être en private. Utilisez à la place des <i>Properties</i> ou des <i>Getters/Setters</i>.<br>
-<strong>Tous les noms doivent être de préférence en anglais!</strong>
-
-### Commentaires
-  Afin que votre code puisse être comprit par le reste de l'équipe, il est important de commenter votre code.<br>
-  Commentez votre code avec des "<i>//</i>" pour les attributs et les variables et des passages de code si nécessaire!<br>
-  Commentez vos "<i>methods</i>" avec des ```<summary>```.
+All attributes must be private, use Properties or Getters/Setters instead.<br/>
+Every names/comments MUST be in English, no matter how broken yours is.
 
 <hr>
 
-Le projet à <i>3'199</i> lignes de code (C#)
+The project currently have <i>3'199</i> lines of code (C#)
 
 <hr>  
